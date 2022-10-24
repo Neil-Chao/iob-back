@@ -1,5 +1,18 @@
-class Behavior{
-    constructor(timestamp, location, light=true, speed = 0, additional_attr = null) {
+/**
+ * BaseBehavior是所有行为的基类
+ */
+
+import { Location } from "../Attribute/Location";
+
+class BaseBehavior{
+    begin_time: number;
+    end_time: number | null;
+    location: Location;
+    speed: number;
+    light: boolean;
+    duration: number;
+    individual: boolean;
+    constructor(timestamp: number, location: any, light: boolean = true, speed: number = 0.0) {
         // 行为开始时间
         this.begin_time = timestamp
         // 行为结束时间
@@ -13,29 +26,23 @@ class Behavior{
         // 行为持续时间
         this.duration = 0
 
-        // 附加属性 行为特定
-        this.additional_attr = additional_attr
-
         // 个人行为 or 群体行为
         this.individual = true
-
-        
-
     }
 
-    get_duration(timestamp) {
+    get_duration(timestamp: number) {
         if(this.end_time != null) {
             return this.duration
         }
         return timestamp - this.begin_time
     }
 
-    end(timestamp) {
+    end(timestamp: number) {
         this.end_time = timestamp
         this.duration = timestamp - this.begin_time
     }
 }
 
-export default {
-    Behavior
+export {
+    BaseBehavior
 }
