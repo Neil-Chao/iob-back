@@ -3,14 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/base"
+    "start": "node ./lib/main.js",
+    "babel-build": "babel src --out-dir lib",
+    "dev": "nodemon --exec babel-node ./src/main.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "core-js": "^3.26.0",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "^2.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/node": "^7.19.1",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.19.4"
   }
 }
