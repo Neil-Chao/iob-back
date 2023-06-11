@@ -11,7 +11,7 @@ import {
 
 async function createBehaviorInstance(uid, begin_time, light, type1, params) {
 
-    // test for PR
+    // test for PR again
     let begin_datetime = begin_time * 1
     if (isNaN(begin_datetime)) {
         throw TypeError("The attribute 'begin_time' has wrong format. You can choose to use millisecond to represent time.")
